@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>The Challenge Page!</title>
+    </head>
+    <body>
+        <h1>Days To Go</h1>
+        <div id="daystogo"></div>
+
+        <h2>Current Fine Amount</h2>
+        <div id="fine"></div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        const START_DATE = moment('20210708', 'YYYYMMDD');
+        const END_DATE = moment('20210906', 'YYYYMMDD');
+
+        const DAYS_TO_GO = END_DATE.diff(moment(), 'days');
+        const FINE = Math.round(DAYS_TO_GO * 500 / 59);
+
+        document.getElementById('daystogo').innerText = DAYS_TO_GO;
+        document.getElementById('fine').innerText = `$${FINE}`;
+
+    </script>
+</html>
